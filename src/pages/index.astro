@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Button from '../components/Button.astro';
+import type { navbar } from '../type';
+
+const NAV: navbar[] = [
+	{
+		href: '',
+		content: 'INICIO',
+		state: 'link--on'
+	},
+	{
+		href: '',
+		content: 'SOBRE NOSOTROS',
+		state: 'link--off'
+	},
+	{
+		href: '',
+		content: 'HABITACIONES',
+		state: 'link--off'
+	}
+]
+---
+
+<Layout title="Hotel Galindo - Un Hotel a tu Medida">
+	<header>
+		<NavBar content={NAV} />
+	</header>
+	<section role="img" class="picture">
+		<img src="/plaza-de-armas.jpg" alt="Imagen de la plaza de armas">
+	</section>
+	<section class="hero">
+		<article class="hero__article">
+			<div class="article__bar"></div>
+			<div class="article__content">
+				<h1>HOTEL GALINDO</h1>
+				<h2>“TU HOGAR LEJOS DEL HOGAR, EN ICA”</h2>
+			</div>
+		</article>
+		<p class="hero__content">El Hotel Galindo te invita a vivir una experiencia de alojamiento única, inspirada en la rica tradición del Restaurante Galindo. Ofrecemos un espacio confortable y seguro a precios accesibles, ubicados en el corazón de Ica, cerca de los principales atractivos turísticos.</p>
+		<Button href='' content='Reservar Ahora' />
+	</section>
+	
+</Layout>
+
+<style>
+	
+
+	header {
+		margin: 50px 100px;
+	}
+	.picture {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		height: 700px;
+		width: 700px;
+		right: 0;
+		top: 0;
+	}
+	.picture img {
+		height: 100%;
+	}
+
+	.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: auto;
+		width: 590px;
+		margin: 0px 60px;
+		gap: 20px;
+	}
+
+	.hero__article {
+		display: flex;
+		gap: 10px;
+	}
+
+	.article__bar {
+		height: 250px;
+		width: 8px;
+		background-color: var(--primary-color);
+	}
+
+	.article__content {
+		font-family: var(--oswald);
+
+	}
+
+	.article__content h1 {
+		font-size: 4.2em;
+		color: var(--primary-color);
+	}
+	
+	.article__content h2 {
+		font-size: 3em;
+	}
+
+	.hero__content {
+		font-family: var(--open-sans);
+		font-size: 1.4rem;
+		
+	}
+</style>

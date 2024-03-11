@@ -1,0 +1,24 @@
+---
+interface Props {
+    href: string;
+    content: string;
+}
+
+const { href, content } = Astro.props;
+---
+
+<a href={ href } class="button">
+{ content }
+</a>
+
+<style>
+    .button {
+        text-decoration: none;
+        padding: 20px 40px;
+        background-color: var(--primary-color);
+        color: white;
+        width: 125px;
+        font-family: var(--open-sans);
+        font-weight: bold
+    }
+</style>

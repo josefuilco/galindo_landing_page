@@ -1,0 +1,34 @@
+---
+import type {navbar} from '../type.ts'
+interface Props {
+    content: navbar[];
+}
+
+const { content } = Astro.props;
+---
+
+<nav class="navbar">
+    <ul>
+        { content.map(item => <li><a class={`navbar__link ${item.state}`} href={item.href}>{item.content}</a></li>)}
+    </ul>
+</nav>
+<style>
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        font-family: var(--open-sans);
+    }
+    .navbar__link {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+    .navbar__link.link--on {
+        color: var(--primary-color);
+    }
+    .navbar__link.link--off {
+        
+        color: var(--gray-color);
+    }
+</style>
