@@ -1,0 +1,174 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.astro";
+import type { navbar } from "../type";
+
+const NAV: navbar[] = [
+    {
+        href: "/",
+        content: "INICIO",
+        state: "link--off",
+    },
+    {
+        href: "/about",
+        content: "SOBRE NOSOTROS",
+        state: "link--on",
+    },
+    {
+        href: "/rooms",
+        content: "HABITACIONES",
+        state: "link--off",
+    },
+];
+
+const currentPath = "/about";
+---
+
+<!-- about.astro -->
+<Layout title="Sobre Nosotros - Hotel Galindo">
+    <header class="header">
+        <div class="about-text">Sobre Nosotros</div>
+        <NavBar content={NAV} currentPath={currentPath} />
+    </header>
+    <section class="about">
+        <div class="about__content">
+            <p>"La vida es demasiado corta para no disfrutar al máximo."</p>
+        </div>
+        <img src="/hotel.png" alt="imagen hotel random" class="wide-image" />
+        <div class="parrafos">
+            <div class="parrafo">
+                <h3>HOTEL GALINDO</h3>
+                <p>
+                    Hace 11 años, surgió una visión audaz que transformó la
+                    oferta de hospitalidad en Ica: el nacimiento del Hotel
+                    Galindo sobre la base del ya exitoso Restaurante Galindo.
+                    Desde aquel día, hemos evolucionado y crecido, forjando una
+                    rica tradición que se ha convertido en nuestro sello
+                    distintivo. Con un legado de 10 años de servicio excepcional
+                    desde el 26 de abril de 2013, el Hotel Galindo ha redefinido
+                    la experiencia de hospedaje en la región. Ahora es un
+                    acogedor hotel de 2 estrellas ubicado en el corazón de Ica,
+                    a pocos pasos de la Plaza de Armas y de los principales
+                    atractivos turísticos de la ciudad.
+                </p>
+            </div>
+            <div class="parrafo">
+                <h3>Nuestra Misión</h3>
+                <p>
+                    Hace 11 años, surgió una visión audaz que transformó la
+                    oferta de hospitalidad en Ica: el nacimiento del Hotel
+                    Galindo sobre la base del ya exitoso Restaurante Galindo.
+                    Desde aquel día, hemos evolucionado y crecido, forjando una
+                    rica tradición que se ha convertido en nuestro sello
+                    distintivo. Con un legado de 10 años de servicio excepcional
+                    desde el 26 de abril de 2013, el Hotel Galindo ha redefinido
+                    la experiencia de hospedaje en la región. Ahora es un
+                    acogedor hotel de 2 estrellas ubicado en el corazón de Ica,
+                    a pocos pasos de la Plaza de Armas y de los principales
+                    atractivos turísticos de la ciudad.
+                </p>
+            </div>
+
+            <div class="parrafo">
+                <h3>Nuestra Visión</h3>
+                <p>
+                    "Nos esforzamos por ser la empresa líder en alojamiento
+                    accesible en Ica, destacando por la calidad excepcional de
+                    nuestro servicio y la constante innovación. Buscamos
+                    trascender los límites tradicionales, creando un legado
+                    duradero que refleje la esencia única de la hospitalidad y
+                    la tradición en la región."
+                </p>
+            </div>
+
+            <div class="parrafo">
+                <h3>Nuestros Valores</h3>
+                <ul>
+                    <li><b>Compromiso</b>: Estamos comprometidos con la satisfacción de nuestros huéspedes y con ofrecerles un servicio de calidad.</li>
+                    <li><b>Honestidad</b>: Somos transparentes en nuestras tarifas y en nuestros servicios.</li>
+                    <li><b>Responsabilidad</b>: Somos responsables con el medio ambiente y con la comunidad local.</li>
+                    <li><b>Respeto</b>: Respetamos a nuestros huéspedes, a nuestros empleados y a la cultura local.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* margin: 20px; */
+        margin: 10px 60px 0px 0px;
+    }
+
+    .about-text {
+        text-align: left;
+        font-family: var(--oswald);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+        width: 590px;
+        margin: 0px 60px;
+        gap: 20px;
+        color: var(--primary-color);
+        font-size: 3.2em;
+        font-weight: bold;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        font-family: var(--oswald);
+        margin: 0px 60px;
+    }
+
+    .about__content {
+        text-align: right;
+        margin-bottom: 10px;
+        font-weight: bold;
+        margin: 20px 0px;
+    }
+
+    .about__content p {
+        font-size: 1.4em;
+        font-family: var(--oswald);
+    }
+    .wide-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .parrafos {
+        text-align: justify;
+        margin: 10px 140px 0px 100px;
+    }
+
+    .parrafo {
+        padding-bottom: 40px;
+    }
+    .parrafo h3 {
+        color: var(--primary-color);
+        font-size: 2.5em;
+    }
+    .parrafo p {
+        font-family: var(--oswald);
+        font-size: 2.0em;
+    }
+
+    .parrafo ul {
+        font-family: var(--oswald);
+        font-size: 1.4em;
+    }
+
+    .parrafo li {
+        font-family: var(--oswald);
+        font-size: 1.4em;
+    }
+</style>

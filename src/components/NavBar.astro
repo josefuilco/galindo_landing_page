@@ -1,15 +1,25 @@
 ---
-import type {navbar} from '../type.ts'
+import type { navbar } from '../type.ts';
+
 interface Props {
     content: navbar[];
+    currentPath: string;
 }
 
-const { content } = Astro.props;
+const { content, currentPath } = Astro.props;
 ---
-
 <nav class="navbar">
     <ul>
-        { content.map(item => <li><a class={`navbar__link ${item.state}`} href={item.href}>{item.content}</a></li>)}
+        {content.map(item => (
+            <li>
+                <a
+                    class={`navbar__link ${item.href === currentPath ? 'link--on' : 'link--off'}`}
+                    href={item.href}
+                >
+                    {item.content}
+                </a>
+            </li>
+        ))}
     </ul>
 </nav>
 <style>
@@ -19,16 +29,18 @@ const { content } = Astro.props;
         gap: 15px;
         font-family: var(--open-sans);
     }
+
     .navbar__link {
         text-decoration: none;
         font-weight: bold;
         font-size: 0.9em;
     }
+
     .navbar__link.link--on {
         color: var(--primary-color);
     }
+
     .navbar__link.link--off {
-        
         color: var(--gray-color);
     }
 </style>

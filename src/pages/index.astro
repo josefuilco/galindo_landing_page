@@ -5,48 +5,59 @@ import Button from '../components/Button.astro';
 import type { navbar } from '../type';
 
 const NAV: navbar[] = [
-	{
-		href: '',
-		content: 'INICIO',
-		state: 'link--on'
-	},
-	{
-		href: '',
-		content: 'SOBRE NOSOTROS',
-		state: 'link--off'
-	},
-	{
-		href: '',
-		content: 'HABITACIONES',
-		state: 'link--off'
-	}
-]
+    {
+        href: '/',
+        content: 'INICIO',
+        state: 'link--on'
+    },
+    {
+        href: '/about',
+        content: 'SOBRE NOSOTROS',
+        state: 'link--off'
+    },
+    {
+        href: '/rooms',
+        content: 'HABITACIONES',
+        state: 'link--off'
+    }
+];
+
+const currentPath = '/';
+
 ---
 
 <Layout title="Hotel Galindo - Un Hotel a tu Medida">
-	<header>
-		<NavBar content={NAV} />
-	</header>
-	<section role="img" class="picture">
-		<img src="/plaza-de-armas.jpg" alt="Imagen de la plaza de armas">
-	</section>
-	<section class="hero">
-		<article class="hero__article">
-			<div class="article__bar"></div>
-			<div class="article__content">
-				<h1>HOTEL GALINDO</h1>
-				<h2>“TU HOGAR LEJOS DEL HOGAR, EN ICA”</h2>
-			</div>
-		</article>
-		<p class="hero__content">El Hotel Galindo te invita a vivir una experiencia de alojamiento única, inspirada en la rica tradición del Restaurante Galindo. Ofrecemos un espacio confortable y seguro a precios accesibles, ubicados en el corazón de Ica, cerca de los principales atractivos turísticos.</p>
-		<Button href='' content='Reservar Ahora' />
-	</section>
-	
+    <header>
+        <NavBar content={NAV} currentPath={currentPath} />
+    </header>
+    <section role="img" class="picture">
+        <img src="/plaza-de-armas.jpg" alt="Imagen de la plaza de armas">
+    </section>
+    <section class="hero">
+        <article class="hero__article">
+            <div class="article__bar"></div>
+            <div class="article__content">
+                <h1>HOTEL GALINDO</h1>
+                <h2>“TU HOGAR LEJOS DEL HOGAR, EN ICA”</h2>
+            </div>
+        </article>
+        <p class="hero__content">El Hotel Galindo te invita a vivir una experiencia de alojamiento única, inspirada en la rica tradición del Restaurante Galindo. Ofrecemos un espacio confortable y seguro a precios accesibles, ubicados en el corazón de Ica, cerca de los principales atractivos turísticos.</p>
+        <Button href='' content='Reservar Ahora' />
+    </section>
+
+	<!-- <div class="green-bar">
+        <img src="/logo.png" alt="Logo del hotel" class="logo" />
+        <div class="subtitle-and-text">
+            <h3>Descubre nuestra hospitalidad</h3>
+            <p>Experimenta la comodidad y el encanto en cada momento de tu estancia.</p>
+        </div>
+    </div> -->
+
+
 </Layout>
 
 <style>
-	
-
+    
 	header {
 		margin: 50px 100px;
 	}
@@ -104,4 +115,33 @@ const NAV: navbar[] = [
 		font-size: 1.4rem;
 		
 	}
+
+	.green-bar {
+        background-color: #4CAF50; /* Color verde de la franja */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px; /* Ajusta según sea necesario */
+        margin-top: 20px; /* Ajusta según sea necesario */
+    }
+
+    .logo {
+        max-width: 100px; /* Ajusta según sea necesario */
+        height: auto;
+    }
+
+    .subtitle-and-text {
+        flex: 1; /* Esto permite que ocupe el espacio restante */
+        margin-left: 20px; /* Ajusta según sea necesario */
+    }
+
+    .subtitle-and-text h3 {
+        font-size: 1.5em;
+        color: white;
+    }
+
+    .subtitle-and-text p {
+        font-size: 1em;
+        color: white;
+    }
 </style>
